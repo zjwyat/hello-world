@@ -1,0 +1,8 @@
+import requests
+from lxml import etree
+url = 'http://www.duanmeiwen.com/qinggan/1181069.html'
+content = requests.get(url).content.decode('gb2312')
+doc = etree.HTML(content).xpath('//div[@class="content"]/p')
+for item in doc:
+
+    print(item.text)
